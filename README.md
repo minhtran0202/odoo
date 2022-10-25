@@ -2,4 +2,4 @@
 test odoo
 
 # token
-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
+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
