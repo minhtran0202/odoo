@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_super_pet,access_super_pet,model_super_pet,base.group_user,1,1,1,1
+access_batch_update_my_pet,access_batch_update_my_pet,model_my_pet_batchupdate_wizard,my_pet_group_admin,1,1,1,1
+access_product_pet,access_product_pet,model_product_pet,base.group_user,1,1,1,1
+access_my_pet_user,my.pet user,model_my_pet,my_pet_group_user,1,0,0,0
+access_my_pet_admin,my.pet admin,model_my_pet,my_pet_group_admin,1,1,1,1

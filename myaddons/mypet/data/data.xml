@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="main_pet" model="product.pet">
+        <field name="name">Pet Pet</field>
+    </record>
+
+    <record id="main_school" model="my.pet">
+        <field name="name">My Pet</field>
+        <field name="name">Pet00001</field>
+        <field name="product_ids" ref="main_pet"/>
+    </record>
+
+</odoo>

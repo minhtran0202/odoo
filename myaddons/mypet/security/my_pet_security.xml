@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="module_my_pet_category" model="ir.module.category">
+        <field name="name">My Pet</field>
+        <field name="sequence">1</field>
+    </record>
+
+    <record id="module_education_category_user" model="ir.module.category">
+        <field name="name">My pet 1</field>
+        <field name="parent_id" ref="module_my_pet_category" />
+        <field name="description">Helps you handle education application</field>
+        <field name="sequence">10</field>
+     </record>
+
+
+    <record id="module_education_category_user1" model="ir.module.category">
+        <field name="name">My pet 2</field>
+        <field name="parent_id" ref="module_education_category_user" />
+        <field name="description">Helps you handle education application</field>
+        <field name="sequence">10</field>
+     </record>
+
+    <record id="my_pet_group_user" model="res.groups">
+    <field name="name">User My Pet</field>
+    <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+    <field name="category_id" ref="module_education_category_user1" />
+    <field name="comment">Users belong to this group can use this application</field>
+    </record>
+
+    <record id="my_pet_group_admin" model="res.groups">
+        <field name="name">Administrator My Pet</field>
+        <field name="implied_ids" eval="[(4, ref('my_pet_group_user'))]" />
+        <field name="category_id" ref="module_education_category_user1" />
+        <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]" />
+        <field name="comment">Users belong to this group can control this application</field>
+    </record>
+
+
+
+    <record id="my_pet_rule_user" model="ir.rule">
+        <field name="name">School: Only see the school is not private</field>
+        <field name="model_id" ref="model_my_pet" />
+        <field name="groups" eval="[(4, ref('mypet.my_pet_group_user'))]" />
+        <field name="domain_force">[('is_private', '=', False)]</field>
+    </record>
+
+    <record id="my_pet_rule_admin" model="ir.rule">
+        <field name="name">School: See all schools</field>
+        <field name="model_id" ref="model_my_pet" />
+        <field name="groups" eval="[(4, ref('mypet.my_pet_group_admin'))]" />
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+
+</odoo>
