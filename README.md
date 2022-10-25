@@ -1,2 +1,5 @@
 # odoo
 test odoo
+
+# token
+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
